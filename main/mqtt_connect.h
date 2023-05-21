@@ -3,7 +3,7 @@
 
 #include <WiFi.h>
 #include <PubSubClient.h>
-#include "pinMode.h"
+#include "lcd.h"
 
 const char* mqtt_server = "test.mosquitto.org";
 WiFiClient espClient;
@@ -25,15 +25,15 @@ void callback(char* topic, byte* message, unsigned int length) {
 
   // If a message is received on the topic esp32/output, you check if the message is either "on" or "off". 
   // Changes the output state according to the message
-  if (String(topic) == "pin") {
+  if (String(topic) == "lcd") { // 这里测试，只测试一个灯泡
     Serial.print("Changing output to ");
     if(messageTemp == "on"){
       Serial.println("on");
-      pinOn();
+      lcdOn();
     }
     else if(messageTemp == "off"){
       Serial.println("off");
-      pinOff();
+      lcdOff();
     }
   }
 }

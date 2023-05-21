@@ -1,19 +1,19 @@
-#ifndef __PINMODE_H__
-#define __PINMODE_H__
+#ifndef LCD_H
+#define LCD_H
 
 #define led_y 12
 
-void pinInit()
+void lcdInit()
 {
   pinMode(led_y, OUTPUT);
 }
 
-void pinOn()
+void lcdOn()
 {
   digitalWrite(led_y, HIGH);
 }
 
-void pinOff()
+void lcdOff()
 {
   digitalWrite(led_y, LOW);
 }
