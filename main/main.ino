@@ -1,40 +1,38 @@
 #include <Wire.h>
 #include "wifi_connect.h"
-// #include "mqtt_connect.h"
-#include "lcd.h"
-#include "pyroelectric.h"
+#include "mqtt_connect.h"
+#include "led.h"
+#include "water_drop.h"
+#include "gas.h"
 
 long lastMsg = 0;
 char msg[50];
+
 int value = 0;
 
 void setup() {
-  Serial.begin(115200);
-  setup_wifi();
-  lcdInit();
-  pyroelectricInit();
-  // client.setServer(mqtt_server, 1883);
-  // client.setCallback(callback);
+  Serial.begin(115200); // 串口
+  setup_wifi(); // 连接WiFi
+  // mqtt
+  client.setServer(mqtt_server, 1883);
+  client.setCallback(callback);
+  // 灯泡
+  ledInit();
+  // 水滴传感器
+  initWaterDrop();
+  // 气体传感器
+  gasInit();
+
 
 }
 
 
 void loop() {
-  // mqtt相关操作
-  // if (!client.connected()) {
-  //   reconnect();
-  // }
-  // client.loop();
-  // // client.publish("esp32/humidity", "asdf"); 发布主题
-  // delay(3000);
-  boolean pyroelectric_val = getPyroelectricValue();
-  Serial.println(pyroelectric_val);
-  if (pyroelectric_val == 1)
-  {
-    lcdOn();
-  } else {
-    lcdOff();
+  // 检查mqtt连接情况
+  if (!client.connected()) {
+    reconnect();
   }
+  client.loop();
 
 }
 

@@ -1,21 +1,22 @@
-#ifndef LCD_H
-#define LCD_H
+#ifndef __LCD_H__
+#define __LCD_H__
 
-#define led_y 12
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+LiquidCrystal_I2C mylcd(0x27,16,2);
 
 void lcdInit()
 {
-  pinMode(led_y, OUTPUT);
+  mylcd.init();
+  mylcd.backlight();
 }
 
-void lcdOn()
-{
-  digitalWrite(led_y, HIGH);
-}
-
-void lcdOff()
-{
-  digitalWrite(led_y, LOW);
+void showHello() {
+  mylcd.setCursor(0, 0);
+  mylcd.print("hello");
+  mylcd.setCursor(0, 1);
+  mylcd.print("keyes");
+  //mylcd.clear();
 }
 
 #endif
