@@ -60,11 +60,9 @@ void loop() {
   client.loop();
 
   // 5min上传一次数据
-  if (millis() % (1000 * 5) == 0) {
+  if (millis() % (1000 * 60 * 5) == 0) {
     getAllState();
   }
-
-  // doorModule();
 
 }
 

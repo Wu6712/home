@@ -150,7 +150,7 @@ void getAllState()
   String gasState = getGasValue();
   allDoc["gasState"] = gasState;
   // 水滴
-  String waterDropState = readWindowState();
+  String waterDropState = readWaterDropState();
   allDoc["waterDropState"] = waterDropState;
   // 风扇
   String fanState = readFanGear();
