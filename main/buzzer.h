@@ -1,5 +1,5 @@
-#ifndef BUZZER_H
-#define BUZZER_H
+#ifndef __BUZZER_H__
+#define __BUZZER_H__
 
 #include <ESP32Tone.h>
 #include <musicESP32_home.h>
@@ -9,6 +9,16 @@ music Music(25);
 void buzzerInit()
 {
   pinMode(buzzer_pin, OUTPUT);
+}
+
+void alarm()
+{
+  digitalWrite(buzzer_pin,HIGH);
+}
+
+void cancelAlarm()
+{
+  digitalWrite(buzzer_pin,LOW);
 }
 
 void playMusic()

@@ -1,5 +1,5 @@
-#ifndef __WATER_DROP__
-#define __WATER_DROP__
+#ifndef __WATER_DROP_H__
+#define __WATER_DROP_H__
 
 #define waterPin 34
 

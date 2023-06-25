@@ -1,5 +1,5 @@
-#ifndef __TEM_HUM__
-#define __TEM_HUM__
+#ifndef __TEM_HUM_H__
+#define __TEM_HUM_H__
 
 #include "xht11.h"
 xht11 xht(17);

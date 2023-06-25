@@ -1,5 +1,5 @@
-#ifndef BTN1_H
-#define BTN1_H
+#ifndef __BTN1_H__
+#define __BTN1_H__
 
 #define btn1 16
 

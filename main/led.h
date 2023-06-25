@@ -1,5 +1,5 @@
-#ifndef LED_H
-#define LED_H
+#ifndef __LED_H__
+#define __LED_H__
 
 #define led_y 12
 
